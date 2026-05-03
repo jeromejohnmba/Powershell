@@ -3,10 +3,13 @@
 # creates multiple local users
 # @() creates an array of usernames
 # ReadHost stores password securely once it is entered
+# forEach loops over each user name then asks to create a password from the user
 
 $usernames = @("James", "Chris")
 $password = Read-Host -AsSecureString "Enter default password"
-$usernames | ForEach -Object { New-LocalUser -Name $_ $password}
+$usernames | ForEach-Object {
+    New-LocalUser -Name $_ -password $password
+}
 
 # create a local user without a password
 # expire user account
