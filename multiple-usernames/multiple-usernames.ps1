@@ -15,7 +15,7 @@ forEach ($User in $UserList) {
 
     New-LocalUser -Name $User -Password $Password -Description "This is the account for $User" -FullName $User
 
-    # add user to local group 
+    # add user to local group
 
     Add-LocalGroupMember -Group "Users" -Member $User
 
