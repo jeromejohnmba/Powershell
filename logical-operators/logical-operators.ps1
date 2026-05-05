@@ -26,3 +26,8 @@ Write-Host $notAge
 
 $notAgeto = -not($lessAge -ge $age)
 Write-Host $notAgeto
+
+# ne can also be used
+
+$result = $age -ne $lessAge
+Write-Host $result
