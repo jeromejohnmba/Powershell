@@ -56,8 +56,39 @@ $olderPerson = $newPerson[0] *= 3
 $olderPerson
 
 # containment operators are -contains, -notcontains, -in, and -notin check if items exists in array
+# contains and in both do the same thing but written backwards
+
 
 $oldestPerson = @(41, "Mark", "Brown")
 $oldestPerson -contains 41
+40 -in $oldestPerson
 
+#join allows you to add your own symbols
+
+$oldestPerson -join "+"
+$oldestPerson -join " "
+
+# you can make types stay on arrays
+
+[String[]].$youngPerson = 25, "Steve", "Wilson", "Male"
+
+# can be done with int to
+
+[int[]].$midPerson = 65
+
+# arrays can hold objects
+
+$personArray = @(
+
+    [PSCustomObject]@{Name = "Colt"; Age =25 }
+    [PSCustomObject]@{Name = "Donald"; Age = 50 }
+
+)
+
+$personArray
+
+# you can use properties and methods on arrays
+# $_ signifies the item being processes
+
+$personArray.ForEach( {$_.Name + " is " + $_.Age + " years old"} )
 
